@@ -1,20 +1,13 @@
+<%@page import="com.hexagon.mvc.model.ColorManager"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%! ColorManager colorManager = new ColorManager(); %>
 <%
 	//클라이언트가 전송한 색상 파라미터 받기!!
 	String color = request.getParameter("color");
 	if(color==null)color=""; //최초에는 전송된 파라미터가 없으므로, 디폴트값을 강제로 부여하자
-	
-	//out.print("유저가 전송한 색상은 "+color);
-	
-	String msg=null;
-	
-	switch(color){
-		case "red": msg="일단 저지르고 보자! 인생은 직진이야";break;	
-		case "blue": msg="이성적이고 논리적인데, 사실 가끔 영혼이 좀 없음";break;	
-		case "green": msg="평화가 최고야. 나무늘보가 부러운 프로 평화주의자";break;	
-		case "yellow": msg="가만히 있으면 입에 가시가 돋는 에너자이저";break;	
-		default:msg="색상을 아직 선택하지 않았네요";
-	}
+
+	//별도로 분리시켜놓은 로직인 model 객체를 이용해보자!!
+	String msg = colorManager.getAdvice(color);
 %>
 <!DOCTYPE html>
 <html>
