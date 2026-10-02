@@ -45,8 +45,9 @@ public class ColorFrame extends JFrame{
 			//System.out.println("나 눌렀어?");
 			
 			//모델 객체를 이용하여 결과 출력!!
-			
-			la_msg.setText("여기에 결과변수 넣기");
+			String item=(String)box.getSelectedItem();// 유저가 선택한 색상(Object)
+			String msg = colorManager.getAdvice(item);
+			la_msg.setText(msg);
 		});
 		
 		setSize(300, 250);
